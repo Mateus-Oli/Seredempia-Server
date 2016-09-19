@@ -47,10 +47,7 @@ app.use(function(req, res){
        res.sendStatus(404);
 });
 
-//Set port for Server
-app.set('port', (process.env.PORT || 9000));
-
 //Launch Server
-app.listen(app.get('port'), function(){
-  console.log("It's over", this.address().port);
+app.listen(process.env.PORT || 9000, function(){
+  console.log("Server Listening on:", this.address().port);
 });
