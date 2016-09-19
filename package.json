@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A web application",
   "engines": {
-    "node": "4.4.5"
+    "node": "4.4.5",
+    "npm": "2.15.5"
   },
   "main": "server.js",
   "scripts": {
