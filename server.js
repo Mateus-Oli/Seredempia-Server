@@ -15,8 +15,8 @@ var transports = require('./controllers/transportController');
 var app = express();
 
 //Connect to MongoDB
-var dbName='heroku_pspfnm0b';
-var connectionString='mongodb://mateus:banana42@ds035826.mlab.com:35826/'+dbName;
+var dbName='heroku_9xq25gxk';
+var connectionString='mongodb://mateus:banana42@ds035796.mlab.com:35796/'+dbName;
 mongoose.connect(connectionString);
 
 
