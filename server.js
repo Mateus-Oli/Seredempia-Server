@@ -16,7 +16,7 @@ var app = express();
 
 //Connect to MongoDB
 var dbName='seredempia';
-var connectionString='mongodb://127.0.0.1:27017/'+dbName;
+var connectionString='mongodb://localhost/'+dbName;
 mongoose.connect(connectionString);
 
 
@@ -47,7 +47,10 @@ app.use(function(req, res){
        res.sendStatus(404);
 });
 
+//Set port for Server
+app.set('port', (process.env.PORT || 9000));
+
 //Launch Server
-app.listen(9000, function(){
+app.listen(app.get('port'), function(){
   console.log("It's over", this.address().port);
 });
