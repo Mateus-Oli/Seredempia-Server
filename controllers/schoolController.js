@@ -51,8 +51,7 @@ router.route('/schoolsCn/:cnpj')
 
 router.route('/schoolsCnPa/:cnpj/:password')
 //GET LOG-IN
-    .get(function(req,res){ console.log('cnpj = '+req.params.cnpj);
-        console.log('password = '+req.params.password);
+    .get(function(req,res){
         School.findOne({cnpj:req.params.cnpj},function(err, school) {
             if(err)
                 res.send(err);

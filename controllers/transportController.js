@@ -52,8 +52,7 @@ router.route('/transportsCn/:cnpj')
 
 router.route('/transportsCnPa/:cnpj/:password')
 //GET LOG-IN
-    .get(function(req,res){ console.log('cnpj = '+req.params.cnpj);
-        console.log('password = '+req.params.password);
+    .get(function(req,res){
         Transport.findOne({cnpj:req.params.cnpj},function(err, transport) {
             if(err)
                 res.send(err);

@@ -14,9 +14,14 @@ var transports = require('./controllers/transportController');
 // Create the Application.
 var app = express();
 
-//Connect to MongoDB
-var dbName='heroku_9xq25gxk';
-var connectionString='mongodb://mateus:banana42@ds035796.mlab.com:35796/'+dbName;
+//Connect to MongoDB online
+//var dbName = 'heroku_9xq25gxk';
+//var connectionString = 'mongodb://mateus:banana42@ds035796.mlab.com:35796/'+dbName;
+
+//Connect to MongoDB offline
+var dbName = 'seredempia';
+var connectionString = 'mongodb://localhost:27017/' + dbName;
+
 mongoose.connect(connectionString);
 
 
@@ -48,6 +53,6 @@ app.use(function(req, res){
 });
 
 //Launch Server
-app.listen(process.env.PORT || 9000, function(){
-  console.log("Server Listening on:", this.address().port);
+app.listen(process.env.PORT || 8000, function(){
+  console.log("It's over", this.address().port);
 });

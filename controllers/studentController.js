@@ -32,7 +32,6 @@ router.route('/students')
 //POST (Create) a new Student
     .post(function(req,res){
         var student=new Student(req.body);
-        console.log(student);
         student.save(function(err){
             if(err)
                 res.send(err);
@@ -46,10 +45,9 @@ router.route('/students')
           Student.update({_id:student._id},{$set:student},function(err,student){
             if(err)
                 res.send(err);
-
-            res.json({ message: 'Estudante atualizado!' });
             });
         });
+        res.json({ message: 'Estudantes atualizados!' });
     });
 
 router.route('/studentsSt/:status')
@@ -57,19 +55,20 @@ router.route('/studentsSt/:status')
     .get(function(req,res){
        Student.find({"status.state":req.params.status,"status.date":new Date().getMonth()},function(err,students){
            if(err)
-                res.send(err);
-           res.json(students);
+              res.send(err);
+
+            res.json(students);
        });
     });
 
 router.route('/studentsSc/:school')
 //GET  all Students with in specified School
     .get(function(req,res){
-      console.log(req.params.school);
       Student.find({"school.name":req.params.school, "status.state":"W", "status.date": new Date().getMonth()},function(err,students){
 
         if(err)
           res.send(err);
+
         res.json(students);
       });
     });
