@@ -20,7 +20,7 @@ var connectionString = 'mongodb://mateus:banana42@ds035796.mlab.com:35796/'+dbNa
 
 //Connect to MongoDB offline
 //var dbName = 'seredempia';
-//var connectionString = 'mongodb://localhost:27017/' + dbName;
+//var connectionString = 'mongodb://127.0.0.1:27017/' + dbName;
 
 mongoose.connect(connectionString);
 
