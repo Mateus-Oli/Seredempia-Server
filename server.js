@@ -15,12 +15,12 @@ var transports = require('./controllers/transportController');
 var app = express();
 
 //Connect to MongoDB online
-//var dbName = 'heroku_9xq25gxk';
-//var connectionString = 'mongodb://mateus:banana42@ds035796.mlab.com:35796/'+dbName;
+var dbName = 'heroku_9xq25gxk';
+var connectionString = 'mongodb://mateus:banana42@ds035796.mlab.com:35796/'+dbName;
 
 //Connect to MongoDB offline
-var dbName = 'seredempia';
-var connectionString = 'mongodb://127.0.0.1:27017/' + dbName;
+//var dbName = 'seredempia';
+//var connectionString = 'mongodb://127.0.0.1:27017/' + dbName;
 
 mongoose.connect(connectionString);
 
