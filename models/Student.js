@@ -13,10 +13,9 @@ var StudentSchema=new Schema({
     date: String,
   },
   school: {
-    cnpj: String,
-    password: String,
-    name: String,
+    type:Schema.ObjectId,
+    ref: 'School',
   },
-});
+}, {collection: "students"});
 
 module.exports=mongoose.model('Student',StudentSchema);

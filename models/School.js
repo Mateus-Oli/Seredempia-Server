@@ -9,6 +9,6 @@ var SchoolSchema=new Schema({
   cnpj: String,
   password: String,
   name: String,
-});
+}, {collection: "schools"});
 
 module.exports=mongoose.model('School',SchoolSchema);

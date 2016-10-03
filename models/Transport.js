@@ -9,6 +9,6 @@ var TransportSchema=new Schema({
   cnpj: String,
   password: String,
   name: String,
-});
+}, {collection: "transports"});
 
 module.exports=mongoose.model('Transport',TransportSchema);
