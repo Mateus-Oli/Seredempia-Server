@@ -13,7 +13,7 @@ router.route('/transports')
 
       if(err) res.send(err);
 
-      res.json(transports);
+      else res.json(transports);
     });
   })
 
@@ -25,7 +25,7 @@ router.route('/transports')
 
       if(err) res.send(err);
 
-      res.send({message:'Transporte Adicionado'});
+      else res.send({message:'Transporte Adicionado'});
     });
   })
 
@@ -37,7 +37,7 @@ router.route('/transports')
 
         if(err) res.send(err);
 
-        res.json({ message: 'Transporte atualizado!' });
+        else res.json({ message: 'Transporte atualizado!' });
       });
     });
   });
@@ -49,7 +49,7 @@ router.route('/transportsCn/:cnpj')
 
       if (err) res.send(err);
 
-      res.json({ message: 'Deletado OK' });
+      else res.json({ message: 'Deletado OK' });
     });
   });
 

@@ -6,16 +6,33 @@ var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
 
 var StudentSchema=new Schema({
-  cpf: String,
-  name: String,
+
+  cpf:  {
+    type: String,
+    required: true},
+
+  name:  {
+    type: String,
+    required: true},
+
   status: {
-    state: String,
-    date: String,
+
+    state:  {
+      type: String,
+      required: true},
+
+    date:  {
+      type: Number,
+      required: true,
+      default: new Date().getMonth()},
   },
+
+  //Reference to School schema
   school: {
     type:Schema.ObjectId,
     ref: 'School',
-  },
+    required: true},
+
 }, {collection: "students"});
 
 module.exports=mongoose.model('Student',StudentSchema);

@@ -14,13 +14,13 @@ var transports = require('./controllers/transportController');
 // Create the Application.
 var app = express();
 
-//Connect to MongoDB online
-var dbName = 'heroku_9xq25gxk';
-var connectionString = 'mongodb://mateus:banana42@ds035796.mlab.com:35796/'+dbName;
-
 //Connect to MongoDB offline
-//var dbName = 'seredempia';
-//var connectionString = 'mongodb://127.0.0.1:27017/' + dbName;
+var dbName = 'seredempia';
+var connectionString = 'mongodb://127.0.0.1:27017/' + dbName;
+
+//Connect to MongoDB online
+//var dbName = 'heroku_9xq25gxk';
+//var connectionString = 'mongodb://mateus:banana42@ds035796.mlab.com:35796/'+dbName;
 
 mongoose.connect(connectionString);
 
@@ -44,12 +44,12 @@ app.use('/api', transports);
 
 //When in Root redirect to /api/students
 app.get('/',function (req, res) {
-        res.redirect('/api/students');
+  res.redirect('/api/students');
 });
 
 //If Not Found send error 404
 app.use(function(req, res){
-       res.sendStatus(404);
+  res.sendStatus(404);
 });
 
 //Launch Server

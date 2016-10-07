@@ -13,7 +13,7 @@ router.route('/schools')
 
       if(err) res.send(err);
 
-      res.json(schools);
+      else res.json(schools);
     });
   })
 
@@ -25,7 +25,7 @@ router.route('/schools')
 
       if(err) res.send(err);
 
-      res.send({message:'Escola Adicionada'});
+      else res.send({message:'Escola Adicionada'});
       });
     })
 
@@ -37,7 +37,7 @@ router.route('/schools')
 
         if(err) res.send(err);
 
-        res.json({ message: 'Escola atualizada!' });
+        else res.json({ message: 'Escola atualizada!' });
       });
     });
   });
@@ -49,7 +49,7 @@ router.route('/schoolsCn/:cnpj')
 
       if (err) res.send(err);
 
-      res.json({ message: 'Deletado OK' });
+      else res.json({ message: 'Deletado OK' });
       });
   });
 

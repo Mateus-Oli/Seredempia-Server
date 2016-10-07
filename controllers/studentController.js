@@ -25,11 +25,13 @@ router.route('/students')
 
       if(err) res.send(err);
 
-      students.forEach(function(student){
-        correctStatus(student);
-      });
+      else{
+        students.forEach(function(student){
+          correctStatus(student);
+        });
 
-      res.json(students);
+        res.json(students);
+      }
     });
   })
 //POST (Create) a new Student
@@ -39,7 +41,7 @@ router.route('/students')
 
       if(err) res.send(err);
 
-      res.send({message:'Estudante Adicionado'});
+      else res.send({message:'Estudante Adicionado'});
     });
   })
 //PUT (Update) a Student
@@ -50,11 +52,12 @@ router.route('/students')
       student.status.date = new Date().getMonth();
 
       Student.update({_id:student._id},{$set:student},function(err,student){
-        if(err) res.send(err);
 
-        res.json({ message: 'Estudantes atualizados!' });
+        if(err) res.send(err);
       });
     });
+    
+    res.json({ message: 'Estudantes atualizados!' });
   });
 
 router.route('/studentsSt/:status')
@@ -64,7 +67,7 @@ router.route('/studentsSt/:status')
 
       if(err) res.send(err);
 
-      res.json(students);
+      else res.json(students);
       });
   });
 
@@ -75,7 +78,7 @@ router.route('/studentsSc/:school')
 
       if(err) res.send(err);
 
-      res.json(students);
+      else res.json(students);
     });
   });
 
@@ -86,9 +89,12 @@ router.route('/studentsCp/:cpf')
 
       if(err) res.send(err);
 
-      correctStatus(student);
+      else{
 
-      res.json(student);
+        correctStatus(student);
+
+        res.json(student);
+      }
     });
   })
 //DELETE  the Student with the specified CPF
@@ -97,7 +103,7 @@ router.route('/studentsCp/:cpf')
 
       if (err) res.send(err);
 
-      res.json({ message: 'Deletado OK' });
+      else res.json({ message: 'Deletado OK' });
     });
   });
 

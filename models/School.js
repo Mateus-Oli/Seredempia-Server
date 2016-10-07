@@ -6,9 +6,19 @@ var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
 
 var SchoolSchema=new Schema({
-  cnpj: String,
-  password: String,
-  name: String,
+
+  cnpj: {
+    type: String,
+    required: true},
+
+  password: {
+    type: String,
+    required: true},
+
+  name: {
+    type: String,
+    required: true},
+
 }, {collection: "schools"});
 
 module.exports=mongoose.model('School',SchoolSchema);
