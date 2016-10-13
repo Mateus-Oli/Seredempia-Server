@@ -1,11 +1,14 @@
 //Creates the Schema for School
 //How the object will be saved in the DB
 
-var mongoose=require('mongoose');
+//Requires Node Module Mongoose
+var mongoose = require('mongoose');
 
-var Schema=mongoose.Schema;
+//Get Schema from Mongoose
+var Schema = mongoose.Schema;
 
-var SchoolSchema=new Schema({
+//Creates a Mongoose Schema
+var SchoolSchema = new Schema({
 
   cnpj: {
     type: String,
@@ -19,6 +22,8 @@ var SchoolSchema=new Schema({
     type: String,
     required: true},
 
-}, {collection: "schools"});
+//Schema For Specific Collection
+}, {collection: 'schools'});
 
-module.exports=mongoose.model('School',SchoolSchema);
+//Exports Student Schema
+module.exports = mongoose.model('School',SchoolSchema);

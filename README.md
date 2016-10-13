@@ -38,7 +38,7 @@ No desenvolvimento desta aplicação foi criado um arquivo "server.js" que impor
 
   •	Models: Utilizando o mongoose é possível criar padrões (esquemas) para objetos a serem adicionados dentro do MongoDB, criando assim os models:
 
-    •	Student – possui CPF, nome, as informações de sua escola (CNPJ e Nome) e seu status, que contém sua
+    •	Student – possui CPF, nome, frequenta uma instituição de ensino, e um status, que contém sua
     situação (podendo ser: "N": Não Confirmado, "W": Esperando, "C": Confirmado, "B": Bloqueado) e
     o mês desta solicitação (Caso não seja o mês atual deve ser atualizado e a situação se tornar "N");
 

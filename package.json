@@ -17,9 +17,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.heroku.com/seredempiaserver.git"
+    "url": "https://github.com/Mateus-Oli/Seredempia-Server.git"
   },
   "keywords": [
-    "Seredempia"
-  ]
+    "Seredempia",
+    "Server"
+  ],
+  "license": "ISC"
 }

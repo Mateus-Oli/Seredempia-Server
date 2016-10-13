@@ -1,26 +1,26 @@
 //Server file
 //Creates the Server
 
-//Requiring node modules
-var express = require('express');
+//Requiring Node Modules
+var express    = require('express');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+var mongoose   = require('mongoose');
 
 //Add Controllers
-var students = require('./controllers/studentController');
-var schools = require('./controllers/schoolController');
+var students   = require('./controllers/studentController');
+var schools    = require('./controllers/schoolController');
 var transports = require('./controllers/transportController');
 
 // Create the Application.
 var app = express();
 
 //Connect to MongoDB offline
-//var dbName = 'seredempia';
-//var connectionString = 'mongodb://127.0.0.1:27017/' + dbName;
+var dbName           = 'seredempia';
+var connectionString = 'mongodb://127.0.0.1:27017/' + dbName;
 
 //Connect to MongoDB online
-var dbName = 'heroku_9xq25gxk';
-var connectionString = 'mongodb://mateus:banana42@ds035796.mlab.com:35796/'+dbName;
+//var dbName           = 'heroku_9xq25gxk';
+//var connectionString = 'mongodb://mateus:banana42@ds035796.mlab.com:35796/'+dbName;
 
 mongoose.connect(connectionString);
 
@@ -43,7 +43,7 @@ app.use('/api', schools);
 app.use('/api', transports);
 
 //When in Root redirect to /api/students
-app.get('/',function (req, res) {
+app.get('/', function (req, res) {
   res.redirect('/api/students');
 });
 

@@ -1,11 +1,14 @@
 //Creates the Schema for Student
 //How the object will be saved in the DB
 
-var mongoose=require('mongoose');
+//Requires Node Module Mongoose
+var mongoose = require('mongoose');
 
-var Schema=mongoose.Schema;
+//Get Schema from Mongoose
+var Schema = mongoose.Schema;
 
-var StudentSchema=new Schema({
+//Creates a Mongoose Schema
+var StudentSchema = new Schema({
 
   cpf:  {
     type: String,
@@ -19,7 +22,8 @@ var StudentSchema=new Schema({
 
     state:  {
       type: String,
-      required: true},
+      required: true,
+      default: 'N'},
 
     date:  {
       type: Number,
@@ -29,10 +33,12 @@ var StudentSchema=new Schema({
 
   //Reference to School schema
   school: {
-    type:Schema.ObjectId,
+    type: Schema.ObjectId,
     ref: 'School',
     required: true},
 
-}, {collection: "students"});
+//Schema For Specific Collection
+}, {collection: 'students'});
 
-module.exports=mongoose.model('Student',StudentSchema);
+//Exports Student Schema
+module.exports = mongoose.model('Student',StudentSchema);

@@ -1,11 +1,14 @@
 //Creates the Schema for Transport
 //How the object will be saved in the DB
 
-var mongoose=require('mongoose');
+//Requires Node Module Mongoose
+var mongoose = require('mongoose');
 
-var Schema=mongoose.Schema;
+//Get Schema from Mongoose
+var Schema = mongoose.Schema;
 
-var TransportSchema=new Schema({
+//Creates a Mongoose Schema
+var TransportSchema = new Schema({
 
   cnpj: {
     type: String,
@@ -18,7 +21,10 @@ var TransportSchema=new Schema({
   name: {
     type: String,
     required: true},
-    
-}, {collection: "transports"});
 
+//Schema For Specific Collection
+}, {collection: 'transports'});
+
+
+//Exports Transport Schema
 module.exports=mongoose.model('Transport',TransportSchema);
