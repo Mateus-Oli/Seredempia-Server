@@ -1,47 +1,108 @@
 # Seredempia
 
-##API Rest da Aplicação Seredempia (Server)
+## API Rest da Aplicação Seredempia (Server)
 
-Esta aplicação tem como objetivo, ao receber solicitações da parte Cliente enviar ou alterar informações de acordo com o que for solicitado e assim possibilitar a automatização do processo de compra de passagens com desconto para estudantes. Para o desenvolvimento desta aplicação está sendo utilizada a linguagem de programação Javascript e as ferramentas:
+Esta aplicação tem como objetivo, ao receber solicitações da parte Cliente enviar ou alterar informações de acordo com o que for solicitado e assim possibilitar a automatização do processo de compra de passagens com desconto para estudantes. Para o desenvolvimento desta aplicação está sendo utilizada a linguagem de programação Javascript.
 
-    • Node.js 4.5.0;
+## Ferramentas
 
-    • MongoDB 3.2.9 para Windows x64;
+* [Node.js 4.5.0](https://nodejs.org/en/);
 
-    • NPM 2.15.9;
+* [MongoDB 3.2.9](https://www.mongodb.com/);
 
-    • Express 4.14.0;
+* [NPM 2.15.9](https://www.npmjs.com/);
 
-    • Body-Parser 1.15.2;
+* [Express 4.14.0](http://expressjs.com/);
 
-    • Mongoose 4.6.1;
+* [Body-Parser 1.15.2](https://github.com/expressjs/body-parser);
 
-    • MongoDB 3.2.9 para Windows x64;
+* [Mongoose 4.6.1](http://mongoosejs.com/);
 
-    • Atom 1.12.0.
+* [Atom 1.12.0](https://atom.io/).
 
-No desenvolvimento desta aplicação foi criado um arquivo "server.js" que importa os módulos do node e arquivos necessários a aplicação, se conecta com o banco de dados (MongDB), cria o server (usando Express) e o coloca no ar. Além deste arquivo, esta aplicação também possui:
+## Estrutura
 
-  •	Controllers: Criam as possíveis rotas a serem utilizadas dentro da api, dentre os controllers estão:
+No desenvolvimento desta aplicação foi criado um arquivo ```server.js"``` que importa os módulos do node e arquivos necessários a aplicação, se conecta com o banco de dados (MongDB), cria o server (usando Express) e o coloca no ar. Além deste arquivo, esta aplicação também possui:
 
-    •	StudentController – cria as rotas relacionadas aos estudantes, como: GET's, pega estudantes específicos
-    dentro do banco (Todos, por Escola, Status ou CPF); POST, adiciona um novo estudante; PUT, altera informações
-    dos estudantes; DELETE, apaga um estudante;
+* ```Controllers```: Criam as possíveis rotas a serem utilizadas dentro da api, dentre os controllers estão:
 
-    •	SchoolController – cria as rotas relacionadas às escolas, como: GET's, pega escolas especificas dentro
-    do banco (Todas ou LOG-IN); POST, adiciona uma nova escola; PUT, altera informações das escolas; DELETE,
-    apaga uma escola;
+  *	```StudentController``` – cria as rotas relacionadas aos estudantes, como: GET's, pega estudantes específicos dentro do banco (Todos, por Escola, Status ou CPF); POST, adiciona um novo estudante; PUT, altera informações dos estudantes; DELETE, apaga um estudante;
 
-    •	TransportController – cria as rotas relacionadas aos transportes, como: GET's, pega transportes
-    específicos dentro do banco (Todos ou LOG-IN); POST, adiciona um novo transporte; PUT, altera informações
-    dos transporte; DELETE, apaga um transporte.
+  *	```SchoolController``` – cria as rotas relacionadas às escolas, como: GET's, pega escolas especificas dentro do banco (Todas ou LOG-IN); POST, diciona uma nova escola; PUT, altera informações das escolas; DELETE, apaga uma escola;
 
-  •	Models: Utilizando o mongoose é possível criar padrões (esquemas) para objetos a serem adicionados dentro do MongoDB, criando assim os models:
+  *	```TransportController``` – cria as rotas relacionadas aos transportes, como: GET's, pega transportes específicos dentro do banco (Todos ou LOG-IN); POST, adiciona um novo transporte; PUT, altera informações dos transporte; DELETE, apaga um transporte.
 
-    •	Student – possui CPF, nome, frequenta uma instituição de ensino, e um status, que contém sua
-    situação (podendo ser: "N": Não Confirmado, "W": Esperando, "C": Confirmado, "B": Bloqueado) e
-    o mês desta solicitação (Caso não seja o mês atual deve ser atualizado e a situação se tornar "N");
+* ```Models```: Utilizando o mongoose é possível criar padrões (esquemas) para objetos a serem adicionados dentro do MongoDB, criando assim os models:
 
-    •	School – possui seu CNPJ, nome (Razão Social) e uma senha para efetuar LOG-IN junto ao CNPJ;
+  * ```Student``` – possui CPF, nome, frequenta uma instituição de ensino, e um status, que contém sua situação (podendo ser: "N": Não Confirmado, "W": Esperando, "C": Confirmado, "B": Bloqueado) e o mês desta solicitação (Caso não seja o mês atual deve ser atualizado e a situação se tornar "N");
 
-    •	Transport – possui seu CNPJ, nome (Razão Social) e uma senha para efetuar LOG-IN junto ao CNPJ.
+  * ```School``` – possui seu CNPJ, nome (Razão Social) e uma senha para efetuar LOG-IN junto ao CNPJ;
+
+  * ```Transport``` – possui seu CNPJ, nome (Razão Social) e uma senha para efetuar LOG-IN junto ao CNPJ.
+
+## Instalação
+
+### Pré-Instalação
+
+Ferramentas necessarias para o funcionamento do projeto. Para instalar o Node.js é necessario entrar em seu site e fazer fazer o download do arquivo:
+
+  * [Node.js](https://nodejs.org/en/);
+
+### Instalações de dependencias
+
+Dependencias utilizadas pelo projeto. o comando a seguir instala as dependencias descritas dentro do arquivo ```package.json```:
+
+* ```npm install```;
+
+## Ativação
+
+Para inicializar o projeto basta entrar na pasta do projeto a partir do console do sistema operacional e digitar o seguinte comando:
+
+```bash
+npm start
+```
+
+## Endpoints
+
+Esta API cria endpoints que suprirão informações para a aplicação cliente apartir de um endereço URL e um método HTTP. dentre estes endpoints estão:
+
+### Endpoints de Estudantes
+
+* ```/student```:
+  * GET: Recupera informações dos estudantes;
+  * POST: Cria um novo estudante;
+  * PUT: Atualiza a informação dos estudantes;
+
+
+* ```/studentsSt/:status```:
+  * GET:  Recupera estudantes a partir de seus status;
+
+
+* ```/studentsSc/:school```:
+  * GET: Recupera estudantes a partir de suas escolas;
+
+
+* ```/studentsCp/:cpf```:
+  * GET: Recupera um estudante apartir de seu CPF.
+
+### Endpoints de Escolas
+
+* ```/schools```:
+  * GET: Recupera informações da escola;
+  * POST: Cria uma nova escola;
+  * PUT: Atualiza a informação das escolas;
+
+
+* ```/schoolsCnPa/:cnpj/:password```:
+  * GET: Recupera informações de login do usuario;
+
+### Endpoints de Transportess
+
+* ```/transport```:
+  * GET: Recupera informações do transporte;
+  * POST: Cria um novo transporte;
+  * PUT: Atualiza a informação dos transporte;
+
+
+* ```/transportCnPa/:cnpj/:password```:
+  * GET: Recupera informações de login do usuario;

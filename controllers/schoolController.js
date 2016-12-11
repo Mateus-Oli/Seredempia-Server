@@ -37,7 +37,7 @@ router.route('/schools')
   .put(function(req, res){
 
     req.body.forEach(function(school){
-      School.update({_id: school._id},{$set: transport},function(err, school){
+      School.update({_id: school._id},{$set: school},function(err, school){
 
         if(err) res.send(err);
 
