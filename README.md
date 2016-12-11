@@ -22,23 +22,23 @@ Esta aplicação tem como objetivo, ao receber solicitações da parte Cliente e
 
 ## Estrutura
 
-No desenvolvimento desta aplicação foi criado um arquivo ```server.js"``` que importa os módulos do node e arquivos necessários a aplicação, se conecta com o banco de dados (MongDB), cria o server (usando Express) e o coloca no ar. Além deste arquivo, esta aplicação também possui:
+No desenvolvimento desta aplicação foi criado um arquivo `server.js"` que importa os módulos do node e arquivos necessários a aplicação, se conecta com o banco de dados (MongDB), cria o server (usando Express) e o coloca no ar. Além deste arquivo, esta aplicação também possui:
 
-* ```Controllers```: Criam as possíveis rotas a serem utilizadas dentro da api, dentre os controllers estão:
+* `Controllers`: Criam as possíveis rotas a serem utilizadas dentro da api, dentre os controllers estão:
 
-  *	```StudentController``` – cria as rotas relacionadas aos estudantes, como: GET's, pega estudantes específicos dentro do banco (Todos, por Escola, Status ou CPF); POST, adiciona um novo estudante; PUT, altera informações dos estudantes; DELETE, apaga um estudante;
+  *	`StudentController` – cria as rotas relacionadas aos estudantes, como: GET's, pega estudantes específicos dentro do banco (Todos, por Escola, Status ou CPF); POST, adiciona um novo estudante; PUT, altera informações dos estudantes; DELETE, apaga um estudante;
 
-  *	```SchoolController``` – cria as rotas relacionadas às escolas, como: GET's, pega escolas especificas dentro do banco (Todas ou LOG-IN); POST, diciona uma nova escola; PUT, altera informações das escolas; DELETE, apaga uma escola;
+  *	`SchoolController` – cria as rotas relacionadas às escolas, como: GET's, pega escolas especificas dentro do banco (Todas ou LOG-IN); POST, diciona uma nova escola; PUT, altera informações das escolas; DELETE, apaga uma escola;
 
-  *	```TransportController``` – cria as rotas relacionadas aos transportes, como: GET's, pega transportes específicos dentro do banco (Todos ou LOG-IN); POST, adiciona um novo transporte; PUT, altera informações dos transporte; DELETE, apaga um transporte.
+  *	`TransportController` – cria as rotas relacionadas aos transportes, como: GET's, pega transportes específicos dentro do banco (Todos ou LOG-IN); POST, adiciona um novo transporte; PUT, altera informações dos transporte; DELETE, apaga um transporte.
 
-* ```Models```: Utilizando o mongoose é possível criar padrões (esquemas) para objetos a serem adicionados dentro do MongoDB, criando assim os models:
+* `Models`: Utilizando o mongoose é possível criar padrões (esquemas) para objetos a serem adicionados dentro do MongoDB, criando assim os models:
 
-  * ```Student``` – possui CPF, nome, frequenta uma instituição de ensino, e um status, que contém sua situação (podendo ser: "N": Não Confirmado, "W": Esperando, "C": Confirmado, "B": Bloqueado) e o mês desta solicitação (Caso não seja o mês atual deve ser atualizado e a situação se tornar "N");
+  * `Student` – possui CPF, nome, frequenta uma instituição de ensino, e um status, que contém sua situação (podendo ser: "N": Não Confirmado, "W": Esperando, "C": Confirmado, "B": Bloqueado) e o mês desta solicitação (Caso não seja o mês atual deve ser atualizado e a situação se tornar "N");
 
-  * ```School``` – possui seu CNPJ, nome (Razão Social) e uma senha para efetuar LOG-IN junto ao CNPJ;
+  * `School` – possui seu CNPJ, nome (Razão Social) e uma senha para efetuar LOG-IN junto ao CNPJ;
 
-  * ```Transport``` – possui seu CNPJ, nome (Razão Social) e uma senha para efetuar LOG-IN junto ao CNPJ.
+  * `Transport` – possui seu CNPJ, nome (Razão Social) e uma senha para efetuar LOG-IN junto ao CNPJ.
 
 ## Instalação
 
@@ -50,9 +50,9 @@ Ferramentas necessarias para o funcionamento do projeto. Para instalar o Node.js
 
 ### Instalações de dependencias
 
-Dependencias utilizadas pelo projeto. o comando a seguir instala as dependencias descritas dentro do arquivo ```package.json```:
+Dependencias utilizadas pelo projeto. o comando a seguir instala as dependencias descritas dentro do arquivo `package.json`:
 
-* ```npm install```;
+* `npm install`;
 
 ## Ativação
 
@@ -68,41 +68,41 @@ Esta API cria endpoints que suprirão informações para a aplicação cliente a
 
 ### Endpoints de Estudantes
 
-* ```/student```:
+* `/student`:
   * GET: Recupera informações dos estudantes;
   * POST: Cria um novo estudante;
   * PUT: Atualiza a informação dos estudantes;
 
 
-* ```/studentsSt/:status```:
+* `/studentsSt/:status`:
   * GET:  Recupera estudantes a partir de seus status;
 
 
-* ```/studentsSc/:school```:
+* `/studentsSc/:school`:
   * GET: Recupera estudantes a partir de suas escolas;
 
 
-* ```/studentsCp/:cpf```:
+* `/studentsCp/:cpf`:
   * GET: Recupera um estudante apartir de seu CPF.
 
 ### Endpoints de Escolas
 
-* ```/schools```:
+* `/schools`:
   * GET: Recupera informações da escola;
   * POST: Cria uma nova escola;
   * PUT: Atualiza a informação das escolas;
 
 
-* ```/schoolsCnPa/:cnpj/:password```:
+* `/schoolsCnPa/:cnpj/:password`:
   * GET: Recupera informações de login do usuario;
 
 ### Endpoints de Transportess
 
-* ```/transport```:
+* `/transport`:
   * GET: Recupera informações do transporte;
   * POST: Cria um novo transporte;
   * PUT: Atualiza a informação dos transporte;
 
 
-* ```/transportCnPa/:cnpj/:password```:
+* `/transportCnPa/:cnpj/:password`:
   * GET: Recupera informações de login do usuario;
